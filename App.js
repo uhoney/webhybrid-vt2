@@ -1,20 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, Pressable } from 'react-native';
+import styles from './components/styles';
+import MyModal from './components/myModal';
 
 export default function App() {
+
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const clickModal = () => {
+    setModalVisible(!modalVisible);
+  }
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Pressable onPress={clickModal}>
+        <Text style={styles.text}>Show modal message</Text>
+      </Pressable>
+      <MyModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
+
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
