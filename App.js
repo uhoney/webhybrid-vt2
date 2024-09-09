@@ -5,8 +5,10 @@ import MyModal from './components/myModal';
 
 export default function App() {
 
+  // Tilamuuttuja ja funktio
   const [modalVisible, setModalVisible] = useState(false);
 
+  // Boolean switch
   const clickModal = () => {
     setModalVisible(!modalVisible);
   }
@@ -16,7 +18,9 @@ export default function App() {
       <Pressable onPress={clickModal}>
         <Text style={styles.text}>Show modal message</Text>
       </Pressable>
-      <MyModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
+
+      {/* Annetaan propseina modalin näkyvyyden tila ja funktio */}
+      <MyModal myModal={modalVisible} setMyModal={setModalVisible} />
 
     </View>
   );
